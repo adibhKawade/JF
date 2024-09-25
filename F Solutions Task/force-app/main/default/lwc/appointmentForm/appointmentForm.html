@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Appointment Form" icon-name="standard:event">
+        <div class="slds-p-around_medium">
+
+            <lightning-record-edit-form object-api-name="Appointment_Detail__c">
+                <lightning-input-field field-name="Contact__c" onchange={handleContactChange}></lightning-input-field>
+            </lightning-record-edit-form>
+
+            <lightning-input label="Subject" value={subject} onchange={handleSubjectChange} required></lightning-input>
+
+            <lightning-combobox 
+                label="Appointment Date" 
+                options={appointmentDateOptions} 
+                value={appointmentDate} 
+                onchange={handleAppointmentDateChange} 
+                placeholder="Select an Appointment Date" 
+                required>
+            </lightning-combobox>
+
+            <!-- Appointment Time Field 
+            <lightning-combobox 
+                label="Appointment Time" 
+                options={appointmentTimeOptions} 
+                value={appointmentTime} 
+                onchange={handleAppointmentTimeChange} 
+                placeholder="Select an Appointment Time" 
+                required>
+            </lightning-combobox>-->
+
+            <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange} required></lightning-textarea>
+
+            <lightning-button label="Submit" variant="brand" onclick={handleSubmit} class="slds-m-top_medium"></lightning-button>
+
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_small">{errorMessage}</div>
+            </template>
+            <template if:true={successMessage}>
+                <div class="slds-text-color_success slds-m-top_small">{successMessage}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

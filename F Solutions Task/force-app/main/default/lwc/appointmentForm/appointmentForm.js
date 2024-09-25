@@ -89,7 +89,7 @@ export default class AppointmentForm extends LightningElement {
         let isValid = true;
         this.errorMessage = '';
 
-        if (!this.appointmentDate || !this.appointmentTime || !this.subject || !this.description || !this.selectedContactId) {
+        if (!this.appointmentDate /*|| !this.appointmentTime*/ || !this.subject || !this.description || !this.selectedContactId) {
             this.errorMessage = 'All fields are required.';
             isValid = false;
         }
